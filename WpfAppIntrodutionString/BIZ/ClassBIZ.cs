@@ -133,10 +133,10 @@ namespace WpfAppIntrodutionString.BIZ
 
         public string ReplaceWord(TextBox textBox, TextBox replacementWord)
         {
-            
+
             string text = textBox.Text;
             string modified = "";
-            
+
             if (replacementWord.Text == "")
             {
                 modified = "Du skal skrive et ord fra teksten i textboksen i bunden at programmet";
@@ -148,6 +148,40 @@ namespace WpfAppIntrodutionString.BIZ
 
 
             return modified;
+        }
+
+        public string CountNumberOFWordLength(TextBox textBox)
+        {
+
+            string result = "";
+
+            Dictionary<int, int> dictionary = new Dictionary<int, int>();
+
+            string[] allWords = textBox.Text.Split(' ');
+
+            foreach (string w in allWords)
+            {
+                if (dictionary.TryGetValue(w.Length, out int count))
+                {
+                    count++;
+                    dictionary[w.Length] = count;
+                }
+                else
+                {
+                    dictionary.Add(w.Length, 1);
+                }
+            }
+
+            var list = dictionary.Keys.ToList();
+            list.Sort();
+
+            foreach (int key in list)
+            {
+                string text = $"Ord med længde {key}: {dictionary[key]} stk" + System.Environment.NewLine;
+                result = result + text;
+            }
+
+            return result;
         }
     }
 }
