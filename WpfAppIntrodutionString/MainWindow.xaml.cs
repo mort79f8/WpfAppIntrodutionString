@@ -49,5 +49,10 @@ namespace WpfAppIntrodutionString
         {
             textboxRight.Text = cb.RemoveAllVokals(textboxLeft);
         }
+
+        private void opgave16_Click(object sender, RoutedEventArgs e)
+        {
+            textboxRight.Text = cb.CountNumberOFWordLength(textboxLeft);
+        }
     }
 }
