@@ -64,5 +64,10 @@ namespace WpfAppIntrodutionString
         {
             textboxRight.Text = cb.CollectAllWords(textboxLeft);
         }
+
+        private void opgave18_Click(object sender, RoutedEventArgs e)
+        {
+            cb.CutAwayLastLetterWhereWordIsLongerThan3Chars(textboxLeft, textboxLeft);
+        }
     }
 }

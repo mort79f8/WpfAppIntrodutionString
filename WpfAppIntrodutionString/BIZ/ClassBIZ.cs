@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -216,5 +217,39 @@ namespace WpfAppIntrodutionString.BIZ
 
             return result;
         }
+
+        public void CutAwayLastLetterWhereWordIsLongerThan3Chars(TextBox oldText, TextBox newText)
+        {
+            StringCollection lines = new StringCollection();
+            string newFinalText = "";
+
+            int lineCount = oldText.LineCount;
+            
+            for (int line = 0; line < lineCount; line++)
+            {
+                lines.Add(oldText.GetLineText(line));
+            }
+
+            foreach (string line in lines)
+            {
+                string newLine = "";
+                string[] allWords = line.Split().Select(x => x.TrimEnd(",.;:-".ToCharArray())).ToArray();
+                foreach (string word in allWords)
+                {
+                    if (word.Length > 3)
+                    {
+                        newLine += $" {word.Substring(0, (word.Length - 1))}";
+                    }
+                    else
+                    {
+                        newLine += $" {word}";
+                    }
+                }
+                newFinalText += newLine + System.Environment.NewLine;
+            }
+
+            newText.Text = newFinalText;
+        }
+
     }
 }
