@@ -131,6 +131,25 @@ namespace WpfAppIntrodutionString.BIZ
             return text;
         }
 
+        public string ReplaceWord(TextBox textBox, TextBox replacementWord)
+        {
+
+            string text = textBox.Text;
+            string modified = "";
+
+            if (replacementWord.Text == "")
+            {
+                modified = "Du skal skrive et ord fra teksten i textboksen i bunden at programmet";
+            }
+            else
+            {
+                modified = text.Replace(replacementWord.Text, $"#>{replacementWord.Text}");
+            }
+
+
+            return modified;
+        }
+
         public string CountNumberOFWordLength(TextBox textBox)
         {
 
