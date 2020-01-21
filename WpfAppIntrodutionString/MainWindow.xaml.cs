@@ -22,17 +22,22 @@ namespace WpfAppIntrodutionString
     public partial class MainWindow : Window
     {
 
-        ClassBIZ classBiz = new ClassBIZ();
+        ClassBIZ cb = new ClassBIZ();
         
         public MainWindow()
         {
             InitializeComponent();
-            classBiz.GetTextForTextBox(textboxLeft);
+            cb.GetTextForTextBox(textboxLeft);
         }
 
         private void opgave11_Click(object sender, RoutedEventArgs e)
         {
-            textboxRight.Text = $"Antal linier med text i venster textbox: {classBiz.CountNumberOfLines(textboxLeft).ToString()}";
+            textboxRight.Text = $"Antal linier med text i venstre textbox: {cb.CountNumberOfLines(textboxLeft).ToString()}";
+        }
+
+        private void opgave12_Click(object sender, RoutedEventArgs e)
+        {
+            textboxRight.Text = $"Antal characters venstre textbox: {cb.CountAllChars(textboxLeft).ToString()}"; 
         }
     }
 }
