@@ -136,19 +136,41 @@ namespace WpfAppIntrodutionString.BIZ
         {
 
             string text = textBox.Text;
-            string modified = "";
+            int count = 0;
+            int i = text.IndexOf(replacementWord.Text);
 
             if (replacementWord.Text == "")
             {
-                modified = "Du skal skrive et ord fra teksten i textboksen i bunden at programmet";
+                text = "Du skal skrive et ord fra teksten i textboksen i bunden at programmet";
             }
             else
             {
-                modified = text.Replace(replacementWord.Text, $"#>{replacementWord.Text}");
+
+                while (i != -1)
+                {
+                    text = text.Insert(i, "#>");
+                    count++;
+                    i = text.IndexOf(replacementWord.Text, i + 3);
+                }
+
+                text = $"Ordet {replacementWord.Text} blev funder {count} gange og er blevet markeret med #>\n\n{text}";
             }
 
+            return text;
 
-            return modified;
+            // old method do not count the number of times word have been found
+            //string modified = "";
+            //if (replacementWord.Text == "")
+            //{
+            //    modified = "Du skal skrive et ord fra teksten i textboksen i bunden at programmet";
+            //}
+            //else
+            //{
+            //    modified = text.Replace(replacementWord.Text, $"#>{replacementWord.Text}");
+            //}
+
+
+            //return modified;
         }
 
         public string CountNumberOFWordLength(TextBox textBox)
