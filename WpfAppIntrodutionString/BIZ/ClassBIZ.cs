@@ -183,5 +183,38 @@ namespace WpfAppIntrodutionString.BIZ
 
             return result;
         }
+
+        public string CollectAllWords(TextBox textBox)
+        {
+            string result = "";
+            Dictionary<string, int> dict = new Dictionary<string, int>();
+
+            string[] allWords = textBox.Text.Split().Select(x => x.TrimEnd(",.;:-".ToCharArray())).ToArray();
+
+            foreach (string w in allWords)
+            {
+                if (dict.TryGetValue(w, out int count))
+                {
+                    count++;
+                    dict[w] = count; 
+                }
+                else
+                {
+                    dict.Add(w, 1);
+                }
+            }
+
+            var list = dict.Keys.ToList();
+            list.Sort();
+
+            foreach (string word in list)
+            {
+                string text = $"ordet >> {word} << forekommer: {dict[word]} antal gange." + System.Environment.NewLine;
+                result = result + text;
+            }
+
+
+            return result;
+        }
     }
 }
