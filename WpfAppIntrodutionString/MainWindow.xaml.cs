@@ -37,7 +37,12 @@ namespace WpfAppIntrodutionString
 
         private void opgave12_Click(object sender, RoutedEventArgs e)
         {
-            textboxRight.Text = $"Antal characters venstre textbox: {cb.CountAllChars(textboxLeft).ToString()}"; 
+            textboxRight.Text = $"Antal characters i venstre textbox: {cb.CountAllChars(textboxLeft).ToString()}"; 
+        }
+
+        private void opgave13_Click(object sender, RoutedEventArgs e)
+        {
+            textboxRight.Text = $"Antal vokaler i venstre textbox: {cb.CountAllVokals(textboxLeft).ToString()}";
         }
     }
 }

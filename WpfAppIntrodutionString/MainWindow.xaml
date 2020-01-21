@@ -56,7 +56,8 @@
                 Margin="60 10"
                 Content="Opgave 3"
                 HorizontalAlignment="Stretch"
-                VerticalAlignment="Stretch" />
+                VerticalAlignment="Stretch"
+                Click="opgave13_Click" />
 
         <Button x:Name="opgave14"
                 Grid.Column="3"
