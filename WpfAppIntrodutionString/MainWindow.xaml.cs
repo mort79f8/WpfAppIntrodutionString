@@ -49,5 +49,10 @@ namespace WpfAppIntrodutionString
         {
             textboxRight.Text = cb.RemoveAllVokals(textboxLeft);
         }
+
+        private void opgave15_Click(object sender, RoutedEventArgs e)
+        {
+            textboxRight.Text = cb.ReplaceWord(textboxLeft,textboxBottom);
+        }
     }
 }
