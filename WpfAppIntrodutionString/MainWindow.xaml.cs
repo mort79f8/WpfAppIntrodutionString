@@ -44,5 +44,10 @@ namespace WpfAppIntrodutionString
         {
             textboxRight.Text = $"Antal vokaler i venstre textbox: {cb.CountAllVokals(textboxLeft).ToString()}";
         }
+
+        private void opgave14_Click(object sender, RoutedEventArgs e)
+        {
+            textboxRight.Text = cb.RemoveAllVokals(textboxLeft);
+        }
     }
 }

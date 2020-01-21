@@ -65,6 +65,9 @@ namespace WpfAppIntrodutionString.BIZ
                     case 'e':
                         counter++;
                         break;
+                    case 'y':
+                        counter++;
+                        break;
                     case 'u':
                         counter++;
                         break;
@@ -83,12 +86,49 @@ namespace WpfAppIntrodutionString.BIZ
                     case 'ø':
                         counter++;
                         break;
+                    case 'A':
+                        counter++;
+                        break;
+                    case 'E':
+                        counter++;
+                        break;
+                    case 'Y':
+                        counter++;
+                        break;
+                    case 'U':
+                        counter++;
+                        break;
+                    case 'I':
+                        counter++;
+                        break;
+                    case 'O':
+                        counter++;
+                        break;
+                    case 'Å':
+                        counter++;
+                        break;
+                    case 'Æ':
+                        counter++;
+                        break;
+                    case 'Ø':
+                        counter++;
+                        break;
                     default:
                         break;
                 }
             }
 
             return counter;
+        }
+
+        public string RemoveAllVokals(TextBox textBox)
+        {
+            string vowels = "aeyuioæøåAEYUIOÆØÅ";
+            string text = textBox.Text;
+
+            text = new string(text.Where(c => !vowels.Contains(c)).ToArray());
+
+            return text;
         }
     }
 }
